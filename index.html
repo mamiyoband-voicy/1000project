@@ -23,20 +23,22 @@
     .hero-cta-row{display:block;margin-top:36px}.hero .hero-cta-row .cta{margin-top:0}.down{z-index:3}
     main{position:relative;z-index:3}.mission{position:relative;z-index:3}
     .mission-copy{grid-column:1/-1}.mission-copy .section-title{max-width:1050px;font-size:clamp(2.35rem,5.8vw,5.4rem);letter-spacing:-.04em;margin-bottom:38px}.mission-copy .quote{max-width:none;font-size:clamp(1.55rem,3.5vw,3.1rem);line-height:1.55;padding:0 0 0 30px}.mission .numbers{grid-column:1/-1;max-width:780px;margin:4px auto 0;width:100%}
+    .live-callout{display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:7px 12px;margin:0 0 20px;padding:10px 14px;border:1px solid var(--orange2);background:rgba(0,0,0,.48);box-shadow:0 0 25px rgba(242,107,33,.3)}.live-callout small{font:1rem "Bebas Neue";letter-spacing:.12em;color:var(--orange2)}.live-callout strong{font-size:1rem}.live-callout span{width:100%;font-size:.75rem;color:#eee}
     @media(max-width:760px){.hero{min-height:760px}.mission-grid{grid-template-columns:1fr;gap:34px}.mission-copy .section-title{font-size:clamp(2.2rem,10vw,3.4rem);letter-spacing:-.03em}.mission-copy .quote{font-size:clamp(1.35rem,7vw,2.1rem);padding-left:20px}.dashboard-head{display:block}.dashboard-head .small-note{margin-top:14px}.steps,.timeline-grid{grid-template-columns:1fr}.mile,.mile:first-child{border:1px solid #d8cfc5;border-top:0}.number{padding:24px 17px}section{padding:72px 0}.hero:after{width:105vw;height:105vw;bottom:-38vw;right:-42vw}.nav .sub{display:none}}
   </style>
 </head>
 <body>
-  <nav class="nav"><div class="wrap"><span class="brand">MAMIYO & MURAKAMI / VOICY</span><a href="https://r.voicy.jp/7Qm2MPM0dKY" target="_blank" rel="noopener">VOICYを聴く ↗</a></div></nav>
+  <nav class="nav"><div class="wrap"><span class="brand">MAMIYO & MURAKAMI / VOICY</span><a href="https://r.voicy.jp/lY9zWL7n7V8" target="_blank" rel="noopener">昨日の放送を聴く ↗</a></div></nav>
   <header class="hero">
     <div class="hero-inner">
       <div class="eyebrow">MAMIYO &amp; MURAKAMI / VOICY 1000回記念企画</div>
+      <div class="live-callout"><small>10.14 LIVE ON VOICY</small><strong>1000回記念ライブ放送</strong><span>この放送で、777回再生を目指す。</span></div>
       <p style="margin:0 0 9px;font-family:'Bebas Neue';font-size:clamp(1.15rem,2.4vw,1.7rem);letter-spacing:.13em;color:#fff">1000TH EPISODE PROJECT</p>
       <h1 style="font-size:clamp(3rem,9vw,7.6rem)">WE WANT<br><span>777</span> PLAYS.</h1>
       <p class="hero-lead">歴だけ長い。<br>なのに、まだ弱小Voicyです。</p>
       <div class="hero-statement"><span>1000回放送するって、すごいよね。</span><span>再生回数が <strong class="orange-stroke">1放送45回</strong> だって。</span><span class="punch">1放送777回再生。<br>僕たちだって、できるんだ。</span></div>
       <p class="hero-meta">1000回目は <strong class="orange-stroke">10/14 ライブ放送予定。</strong><br>その日までに999回へ、たどり着けるのか。</p>
-      <div class="hero-cta-row"><a class="cta" href="https://r.voicy.jp/7Qm2MPM0dKY" target="_blank" rel="noopener">まず、いまのVoicyを聴きにいく <small>VOICY ↗</small></a></div>
+      <div class="hero-cta-row"><a class="cta" href="https://r.voicy.jp/lY9zWL7n7V8" target="_blank" rel="noopener">昨日の放送を聴きにいく <small>VOICY ↗</small></a></div>
     </div>
     <a class="down" href="#mission">SCROLL ↓</a>
   </header>
@@ -49,7 +51,7 @@
 
     <section id="count" class="dashboard"><div class="wrap">
       <div class="dashboard-head"><div><div class="section-kicker">THE COUNTDOWN</div><h2 class="section-title">10/14までに、<br>999回へ辿りつけるか？</h2></div><p class="small-note">今日の放送の伸びも、1000回目の777再生への助走。<br>「育っていく記録」を、みんなで見届ける場所。</p></div>
-      <div class="numbers" style="margin-bottom:18px"><div class="number" style="background:#fff"><span class="number-label">EPISODE COUNTDOWN</span><strong class="number-value" id="episodes-left">—</strong><span class="number-suffix">回で1000回</span><p class="number-note" id="episode-note">現在の放送回数を設定すると表示されます。</p></div><div class="number" style="background:#fff"><span class="number-label">TARGET EPISODE</span><strong class="number-value">1000<span class="number-suffix">回目</span></strong><p class="number-note">歴だけは、やたら長い。</p></div></div>
+      <div class="numbers" style="margin-bottom:18px"><div class="number" style="background:#fff"><span class="number-label">EPISODE COUNTDOWN</span><span class="number-suffix">あと</span><strong class="number-value" id="episodes-left">—</strong><span class="number-suffix">回で1000回</span><p class="number-note" id="episode-note">現在の放送回数を設定すると表示されます。</p></div><div class="number" style="background:#fff"><span class="number-label">TARGET EPISODE</span><strong class="number-value">1000<span class="number-suffix">回目</span></strong><p class="number-note">歴だけは、やたら長い。</p></div></div>
       <div class="progress-card"><div class="live-label"><i class="dot"></i> TODAY'S PLAY COUNT</div><div class="counter"><strong id="plays">—</strong><span>/ 777 回再生</span></div><div class="meter"><b id="bar"></b></div><div class="meter-info"><span id="percent">集計待ち</span><span>1000TH GOAL: 777 PLAYS</span></div><p class="status-note" id="status">今日の放送、どうだった？ 10回でも、777への助走です。</p></div>
     </div></section>
 
@@ -65,7 +67,7 @@
   <script>
     // 更新はこの3つだけ。放送回数は「直近に公開した回」、再生数は今日の放送の数を入力。
     // 例：1000回目の公開前に999回まで放送済みなら currentEpisode: 999
-    const campaign = { currentEpisode: 985, currentPlays: 10, targetEpisode: 1000, targetPlays: 777 };
+    const campaign = { currentEpisode: 985, currentPlays: 34, targetEpisode: 1000, targetPlays: 777 };
     const episode = campaign.currentEpisode;
     const plays = campaign.currentPlays;
     if (Number.isFinite(episode)) {
@@ -81,7 +83,7 @@
       document.querySelector('#percent').textContent = Math.round(pct) + '%';
       document.querySelector('#status').textContent = current >= campaign.targetPlays
         ? '777回達成！ 歴だけじゃなかった。聴いてくれた全員が、この景色の共犯者です。'
-        : `今日の放送は、1時間で ${current.toLocaleString('ja-JP')} 回再生！ 1000回目の777回再生へ、これは助走です。`;
+        : `昨日の放送は現在 ${current.toLocaleString('ja-JP')} 回再生！ 1000回目の777回再生へ、これは助走です。`;
     }
   </script>
 </body>

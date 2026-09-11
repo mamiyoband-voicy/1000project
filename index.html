@@ -64,8 +64,9 @@
   </main>
   <footer class="footer"><div class="wrap">© MAMIYO & MURAKAMI / VOICY 1000TH PROJECT<br><a href="https://mamiyoband.com/" target="_blank" rel="noopener">MAMIYO BAND OFFICIAL SITE ↗</a></div></footer>
   <script>
-    // status.jsonだけを更新すれば、放送回数・再生数・最新リンクがページへ反映されます。
-    const fallback = { currentEpisode: 986, currentPlays: 107, latestVoicyUrl: 'https://r.voicy.jp/YQm4by41MV2' };
+    // Googleスプレッドシートを更新すれば、放送回数・再生数・最新リンクがページへ反映されます。
+    const sheetCsvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTJrqJrJOK2fIB8lM_ENAl-043b5J48Q7ZNYLDe_vdv9cM_PBuuMG6tZw3Mq4mXmqN6AJctIjPU6Gjc/pub?gid=0&single=true&output=csv';
+    const fallback = { currentEpisode: 990, currentPlays: 43, latestVoicyUrl: 'https://r.voicy.jp/wWK8lyXlGKB' };
     const targetEpisode = 1000;
     const targetPlays = 777;
     function renderStatus(data) {
@@ -90,10 +91,38 @@
         document.querySelector('#latest-voicy-link').href = data.latestVoicyUrl;
       }
     }
-    fetch('./status.json', { cache: 'no-store' })
-      .then(response => response.ok ? response.json() : Promise.reject(new Error('status unavailable')))
+    function parseCsvRow(row) {
+      const values = [];
+      let value = '', quoted = false;
+      for (let i = 0; i < row.length; i += 1) {
+        const char = row[i];
+        if (char === '"' && row[i + 1] === '"') { value += '"'; i += 1; }
+        else if (char === '"') quoted = !quoted;
+        else if (char === ',' && !quoted) { values.push(value.trim()); value = ''; }
+        else value += char;
+      }
+      values.push(value.trim());
+      return values;
+    }
+    function parseSheetCsv(text) {
+      const rows = text.trim().split(/\r?\n/).filter(Boolean).map(parseCsvRow);
+      if (rows.length < 2) throw new Error('sheet is empty');
+      const [headers, values] = rows;
+      const data = Object.fromEntries(headers.map((header, index) => [header.trim(), values[index] || '']));
+      return {
+        currentEpisode: Number(data.currentEpisode),
+        currentPlays: Number(data.currentPlays),
+        latestVoicyUrl: data.latestVoicyUrl
+      };
+    }
+    fetch(sheetCsvUrl, { cache: 'no-store' })
+      .then(response => response.ok ? response.text() : Promise.reject(new Error('sheet unavailable')))
+      .then(parseSheetCsv)
       .then(renderStatus)
-      .catch(() => renderStatus(fallback));
+      .catch(() => fetch('./status.json', { cache: 'no-store' })
+        .then(response => response.ok ? response.json() : Promise.reject(new Error('status unavailable')))
+        .then(renderStatus)
+        .catch(() => renderStatus(fallback)));
   </script>
 </body>
 </html>
